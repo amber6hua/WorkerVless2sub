@@ -1,0 +1,18 @@
+name: Sync GitLab
+
+on:
+  push:
+    branches:
+      - main  # 只在 main 分支同步
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout GitHub repo
+        uses: actions/checkout@v3
+
+      - name: Push to GitLab
+        run: |
+          git remote add gitlab https://${GITLAB_TOKEN}@gitlab.com/username/repo.git
+          git push --mirror gitlab
