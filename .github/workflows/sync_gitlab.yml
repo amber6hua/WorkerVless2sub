@@ -10,8 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout GitHub repo
+      - name: Checkout full Git history
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # 取消 shallow clone，获取完整历史
 
       - name: Configure Git
         run: |
