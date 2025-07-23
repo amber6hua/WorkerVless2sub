@@ -1,7 +1,5 @@
 name: Sync GitHub to GitLab
 
-name: Sync GitHub to GitLab
-
 on:
   schedule:
     - cron: "0 0 * * *" # every day
