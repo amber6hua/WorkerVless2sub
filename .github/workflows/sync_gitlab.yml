@@ -29,28 +29,3 @@ jobs:
 
       - name: Push tags to GitLab
         run: git push --force --tags gitlab
-
-jobs:
-  sync:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout full Git history
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Configure Git
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-
-      - name: Add GitLab remote
-        run: |
-          git remote add gitlab https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/amber6hua/newwv2b.git
-
-      - name: Push branches to GitLab
-        run: git push --force --all gitlab
-
-      - name: Push tags to GitLab
-        run: git push --force --tags gitlab
