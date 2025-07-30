@@ -25,7 +25,7 @@ jobs:
           git remote add gitlab https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/amber6hua/WorkerVless2sub.git
 
       - name: Push branches to GitLab
-        run: git push --force-with-lease --all gitlab
+        run: git push --force --all gitlab
 
       - name: Push tags to GitLab
-        run: git push --force-with-lease --tags gitlab
+        run: git push --force --tags gitlab
